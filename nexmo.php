@@ -17,9 +17,9 @@
 	//include ("parse.com-php-library/parse.php");
 	$sms = new NexmoMessage('9e300837', '7fed3068');
     if ($sms->inboundText()) {
-    	//$sms->reply('You said: ' . $sms->text);
+    	$sms->reply('You said: ' . $sms->text);
 		//$sms->reply('You said: ' . $sms->text . ' from:' . $this->from . 'to: ' $this->to);
-		$sms->inbound_message = false;
+		//$sms->inbound_message = false;
 		//echo "you said";
 		//echo $sms->text;
 		$team1=0;
