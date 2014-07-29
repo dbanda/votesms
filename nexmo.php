@@ -32,7 +32,7 @@
 		$team8=0;
 		
 	
-		switch ((int)($sms->text,10)) {
+		switch ((int)($sms->text)) {
 		    case 1:
 		        $team1 = 1;
 		        break;
