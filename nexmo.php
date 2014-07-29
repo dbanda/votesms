@@ -17,7 +17,7 @@
 	//include ("parse.com-php-library/parse.php");
 	$sms = new NexmoMessage('9e300837', '7fed3068');
     if ($sms->inboundText()) {
-    	$sms->reply('You said: ' . $sms->text);
+    	//$sms->reply('You said: ' . $sms->text);
 		//$sms->reply('You said: ' . $sms->text . ' from:' . $this->from . 'to: ' $this->to);
 		//$sms->inbound_message = false;
 		//echo "you said";
@@ -53,7 +53,7 @@
 		        break;
 		    case 7:
 		        $team7 = 1;
-		        $sms->reply('7 up');
+		        //$sms->reply('7 up');
 		        echo "we made it yay";
 		        break;
 		    case 8:
@@ -67,7 +67,7 @@
 		  die('Error: ' . mysqli_error($con));
 		}
 		mysqli_close($con);
-		$sms->reply('all said and done!');
+		//$sms->reply('all said and done!');
 	}
 
 	//http_response_code(200);
