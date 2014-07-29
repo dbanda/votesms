@@ -1,8 +1,8 @@
 <?php
-	//error_reporting(E_ALL);
-	//ini_set('display_errors',1);
+	error_reporting(E_ALL);
+	ini_set('display_errors',1);
 		// Create connection
-	//echo "trying to connect";
+	echo "trying to connect";
 	$con=mysqli_connect("127.0.0.1","root","root","votes");
 
 	// Check connection
@@ -10,7 +10,7 @@
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	else{
-		//echo "connected to mysql";
+		echo "connected to mysql";
 	}
 
 	include ( "src/NexmoMessage.php" );
@@ -54,6 +54,7 @@
 		    case 7:
 		        $team7 = 1;
 		        $sms->reply('7 up');
+		        echo "we made it yay";
 		        break;
 		    case 8:
 		        $team8 = 1;
