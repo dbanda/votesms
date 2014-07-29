@@ -144,7 +144,7 @@ function BarGraph(ctx) {
 		ctx.textAlign = "center";
 		// Use try / catch to stop IE 8 from going to error town
 		try {
-		  ctx.fillText(parseInt(arr[i],10),
+		  ctx.fillText(parseInt(endArr[i],10),
 			i * that.width / numOfBars + (that.width / numOfBars) / 2,
 			graphAreaHeight - barHeight - 10);
 		} catch (ex) {}
