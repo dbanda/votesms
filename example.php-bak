@@ -1,0 +1,96 @@
+<?php
+	error_reporting(E_ALL);
+
+	$team1=$_REQUEST["team1"];
+	$team2=$_REQUEST["team2"];
+	$team3=$_REQUEST["team3"];
+	$team4=$_REQUEST["team4"];
+	$team5=$_REQUEST["team5"];
+	$team6=$_REQUEST["team6"];
+	$team7=$_REQUEST["team7"];
+	$team8=$_REQUEST["team8"];
+
+	if (!(isset($team1,$team2,$team3,$team4,$team5,$team6,$team7,$team8))){
+		$team1=0;
+		$team2=0;
+		$team3=0;
+		$team4=0;
+		$team5=0;
+		$team6=0;
+		$team7=0;
+		$team8=0;
+	}
+	echo "starting php";
+	include ( "src/NexmoMessage.php" );
+	echo "got nexmo";
+
+
+	// /**
+	//  * To send a text message.
+	//  *
+	//  */
+
+	// // Step 1: Declare new NexmoMessage.
+	// // $api_key = '9e300837';
+	// // $api_secret = '7fed3068';
+	// $nexmo_sms = new NexmoMessage('9e300837', '7fed3068');
+	// echo "declared new nexmo message";
+	// // Step 2: Use sendText( $to, $from, $message ) method to send a message. 
+	// $info = $nexmo_sms->sendText( '+27740184931', 'MyApp', 'Hello!' );
+
+	// // Step 3: Display an overview of the message
+	// echo "sending message";
+	// echo $nexmo_sms->displayOverview($info);
+
+	// // Done!
+
+	$sms = new NexmoMessage('9e300837', '7fed3068');
+    if ($sms->inboundText()) {
+		$sms->reply('You said: ' . $sms->text);
+		// xmlhttp.open("GET","example.php?q="+str,true);
+  // 		xmlhttp.send();
+	}
+
+	http_response_code(200);
+?>
+	<!-- <!DOCTYPE html>
+	<head>
+		<title>HTML5 Bar Graph Example</title>
+	</head>
+
+	<body>
+		<div id="graphDiv1"></div>
+		<br />
+		<div id="graphDiv2"></div>
+		<script src="html5-canvas-bar-graph.js"></script>
+		<script>(function () {
+		
+			function createCanvas(divName) {
+				
+				var div = document.getElementById(divName);
+				var canvas = document.createElement('canvas');
+				canvas.style["width"] = "70%";
+				div.appendChild(canvas);
+				if (typeof G_vmlCanvasManager != 'undefined') {
+					canvas = G_vmlCanvasManager.initElement(canvas);
+				}	
+				var ctx = canvas.getContext("2d");
+				return ctx;
+			}
+			
+			var ctx = createCanvas("graphDiv1");
+			
+			var graph = new BarGraph(ctx);
+			graph.maxValue = 30;
+			graph.margin = 2;
+			graph.colors = ["#49a0d8", "#d353a0", "#ffc527", "#df4c27"];
+			graph.xAxisLabelArr = ["North", "East", "West", "South"];
+			setInterval(function () {
+				graph.update([<?php// echo $team1; ?>, Math.random() * 30, Math.random() * 30, Math.random() * 30]);
+			}, 1000);
+			
+
+		}());</script>
+	</body>
+	</html>
+ -->
