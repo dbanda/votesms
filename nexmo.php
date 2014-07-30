@@ -14,14 +14,14 @@
 	}
 
 	include ( "src/NexmoMessage.php" );
-	//include ("parse.com-php-library/parse.php");
-	$sms = new NexmoMessage('9e300837', '7fed3068');
-    if ($sms->inboundText()) {
-    	//$sms->reply('You said: ' . $sms->text);
-		//$sms->reply('You said: ' . $sms->text . ' from:' . $this->from . 'to: ' $this->to);
+	$account_key = sms'9e300837';
+	$account_secret = '7fed3068';
+	$sms = new NexmoMessage($account_key, $account_secret);
+    	if ($sms->inboundText()) {
+    		//$sms->reply('You said: ' . $sms->text);
 		//$sms->inbound_message = false;
-		//echo "you said";
-		//echo $sms->text;
+		echo "you said";
+		echo $sms->text;
 		$team1=0;
 		$team2=0;
 		$team3=0;
@@ -53,13 +53,11 @@
 		        break;
 		    case 7:
 		        $team7 = 1;
-		        //$sms->reply('7 up');
-		        echo "we made it yay";
 		        break;
 		    case 8:
 		        $team8 = 1;
 		        break;		    
-		    }    
+		}    
 		$sql="INSERT INTO votes (team1, team2, team3, team4, team5, team6, team7, team8)
 		VALUES ($team1, $team2, $team3, $team4, $team5, $team6, $team7, $team8)";
 
@@ -67,8 +65,7 @@
 		  die('Error: ' . mysqli_error($con));
 		}
 		mysqli_close($con);
-		//$sms->reply('all said and done!');
+
 	}
 
-	//http_response_code(200);
 ?>
