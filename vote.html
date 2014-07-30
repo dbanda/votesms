@@ -39,6 +39,10 @@
 					    //alert(xmlhttp.responseText);
 					    //alert(tallies);
 					    graph.update(tallies.slice(0,-1).map(Number));
+
+					    for (var i = 1; i < 9; i++) {
+					 		document.getElementById("t" + i).innerHTML=tallies[i-1]
+					    };
 					}
 				}
 				xmlhttp.open("GET","query.php",true);
@@ -51,74 +55,80 @@
 		}());</script>
 		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="http://code.highcharts.com/modules/data.js"></script>
 		<script src="http://code.highcharts.com/modules/exporting.js"></script>
 
-		<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+		<table id="datatable">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Votes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>team1</th>
+					<td id="t1">0</td>
+				</tr>
+				<tr>
+					<th>team2</th>
+					<td id="t2">0</td>
+				</tr>
+				<tr>
+					<th>team3</th>
+					<td id="t3">0</td>
+				</tr>
+				<tr>
+					<th>team4</th>
+					<td id="t4">0</td>
+				</tr>
+				<tr>
+					<th>team5</th>
+					<td id="t5">0</td>
+				</tr>
+				<tr>
+					<th>team6</th>
+					<td id="t6">0</td>
+				</tr>
+				<tr>
+					<th>team7</th>
+					<td id="t7">0</td>
+				</tr>
+				<tr>
+					<th>team8</th>
+					<td id="t8">0</td>
+				</tr>
+			</tbody>
+		</table>
 		<script>
 			$(function () {
-        $('#container').highcharts({
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Historic World Population by Region'
-            },
-            subtitle: {
-                text: 'Source: Wikipedia.org'
-            },
-            xAxis: {
-                categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-                title: {
-                    text: null
-                }
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Population (millions)',
-                    align: 'high'
-                },
-                labels: {
-                    overflow: 'justify'
-                }
-            },
-            tooltip: {
-                valueSuffix: ' millions'
-            },
-            plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'top',
-                x: -40,
-                y: 100,
-                floating: true,
-                borderWidth: 1,
-                backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor || '#FFFFFF'),
-                shadow: true
-            },
-            credits: {
-                enabled: false
-            },
-            series: [{
-                name: 'Year 1800',
-                data: [107, 31, 635, 203, 2]
-            }, {
-                name: 'Year 1900',
-                data: [133, 156, 997, 408, 6]
-            }, {
-                name: 'Year 2008',
-                data: [973, 914, 4054, 732, 34]
-            }]
-        });
-    });
-    
+			    $('#container').highcharts({
+			        data: {
+			            table: document.getElementById('datatable')
+			        },
+			        chart: {
+			            type: 'column'
+			        },
+			        title: {
+			            text: 'Data extracted from a HTML table in the page'
+			        },
+			        yAxis: {
+			            allowDecimals: false,
+			            title: {
+			                text: 'Units'
+			            }
+			        },
+			        tooltip: {
+			            formatter: function() {
+			                return '<b>'+ this.series.name +'</b><br/>'+
+			                    this.point.y +' '+ this.point.name.toLowerCase();
+			            }
+			        }
+			    });
+			});
+			    
 
 		</script>
 
