@@ -14,7 +14,7 @@
 	}
 
 	include ( "src/NexmoMessage.php" );
-	$account_key = sms'9e300837';
+	$account_key = '9e300837';
 	$account_secret = '7fed3068';
 	$sms = new NexmoMessage($account_key, $account_secret);
     	if ($sms->inboundText()) {
