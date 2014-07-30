@@ -1,13 +1,8 @@
 {
-    "name": "prawnsalad/nexmo",
-    "description": "prawnsalad's Nexmo-PHP-lib",
+    "name": "dbanda/votes",
+    "description": "A php mysql sms voting app that uses the Nexmo-PHP-lib (https://github.com/prawnsalad/Nexmo-PHP-lib)",
     "keywords": ["Nexmo"],
-    "homepage": "https://github.com/prawnsalad/Nexmo-PHP-lib",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "PrawnSalad\\Nexmo\\": ["src"]
-        }
-    }
+    "homepage": "https://github.com/dbanda/votes",
+    "license": "MIT"
 }
 
