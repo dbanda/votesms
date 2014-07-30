@@ -43,6 +43,7 @@
 					    for (var i = 1; i < 9; i++) {
 					 		document.getElementById("t" + i).innerHTML=tallies[i-1]
 					    };
+					    gup();
 					}
 				}
 				xmlhttp.open("GET","query.php",true);
@@ -103,7 +104,7 @@
 			</tbody>
 		</table>
 		<script>
-			$(function () {
+			var gup= function () {
 			    $('#container').highcharts({
 			        data: {
 			            table: document.getElementById('datatable')
@@ -127,7 +128,8 @@
 			            }
 			        }
 			    });
-			});
+			};
+			$(gup);
 			    
 
 		</script>
