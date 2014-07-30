@@ -30,6 +30,7 @@
 			graph.margin = 2;
 			graph.colors = ["#49a0d8", "#d353a0", "#ffc527", "#df4c27", "#49a0d8", "#d353a0", "#ffc527", "#df4c27"];
 			graph.xAxisLabelArr = ["team1", "team2", "team3", "team4", "team5", "team6", "team7", "team8"];
+			var oldtallies=[0,0,0,0,0,0,0,0];
 			setInterval(function () {
 
 				xmlhttp=new XMLHttpRequest();
@@ -39,11 +40,17 @@
 					    //alert(xmlhttp.responseText);
 					    //alert(tallies);
 					    graph.update(tallies.slice(0,-1).map(Number));
-
+					    var changed = false;
 					    for (var i = 1; i < 9; i++) {
 					 		document.getElementById("t" + i).innerHTML=tallies[i-1]
+					 		if(tallies[i-1] != oldtallies[i-1]){
+					 			changed = true
+					 		}
 					    };
-					    gup();
+					    if (changed) {
+					    	gup();
+					    };
+					
 					}
 				}
 				xmlhttp.open("GET","query.php",true);
