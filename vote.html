@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 	<head>
-		<title>votes</title>
+		<title>votesms</title>
 	</head>
 
 	<body>
-		<div id="graphDiv1"></div>
+		<!-- <div id="graphDiv1-bak"></div>
 		<br />
-		<div id="graphDiv2"></div>
+		<div id="graphDiv2-bak"></div>
+		-->
 		<script src="html5-canvas-bar-graph.js"></script>
 		<script>(function () {
 		
-			function createCanvas(divName) {
+			//function createCanvas(divName) {
 				
-				var div = document.getElementById(divName);
-				var canvas = document.createElement('canvas');
-				canvas.style["width"] = "70%";
-				div.appendChild(canvas);
-				if (typeof G_vmlCanvasManager != 'undefined') {
-					canvas = G_vmlCanvasManager.initElement(canvas);
-				}	
-				var ctx = canvas.getContext("2d");
-				return ctx;
-			}
+			//	var div = document.getElementById(divName);
+			//	var canvas = document.createElement('canvas');
+			//	canvas.style["width"] = "70%";
+			//	div.appendChild(canvas);
+			//	if (typeof G_vmlCanvasManager != 'undefined') {
+			//		canvas = G_vmlCanvasManager.initElement(canvas);
+			//	}	
+			//	var ctx = canvas.getContext("2d");
+			//	return ctx;
+			//}
 			
-			var ctx = createCanvas("graphDiv1");
+			// var ctx = createCanvas("graphDiv1");
 			
-			var graph = new BarGraph(ctx);
-			graph.maxValue = 30;
-			graph.margin = 2;
-			graph.colors = ["#49a0d8", "#d353a0", "#ffc527", "#df4c27", "#49a0d8", "#d353a0", "#ffc527", "#df4c27"];
-			graph.xAxisLabelArr = ["team1", "team2", "team3", "team4", "team5", "team6", "team7", "team8"];
+			//var graph = new BarGraph(ctx);
+			//graph.maxValue = 30;
+			//graph.margin = 2;
+			//graph.colors = ["#49a0d8", "#d353a0", "#ffc527", "#df4c27", "#49a0d8", "#d353a0", "#ffc527", "#df4c27"];
+			//graph.xAxisLabelArr = ["team1", "team2", "team3", "team4", "team5", "team6", "team7", "team8"];
 			var oldtallies=[0,0,0,0,0,0,0,0];
 			setInterval(function () {
 
@@ -39,7 +40,7 @@
 					    var tallies = xmlhttp.responseText.split("<br>");
 					    //alert(xmlhttp.responseText);
 					    //alert(tallies);
-					    graph.update(tallies.slice(0,-1).map(Number));
+					    //graph.update(tallies.slice(0,-1).map(Number));
 					    var changed = false;
 					    for (var i = 1; i < 9; i++) {
 					 		document.getElementById("t" + i).innerHTML=tallies[i-1]
@@ -78,35 +79,35 @@
 			</thead>
 			<tbody>
 				<tr>
-					<th>team1</th>
+					<th>1. Lefa Mobile</th>
 					<td id="t1">0</td>
 				</tr>
 				<tr>
-					<th>team2</th>
+					<th>2. Tecco</th>
 					<td id="t2">0</td>
 				</tr>
 				<tr>
-					<th>team3</th>
+					<th>3. EdYou</th>
 					<td id="t3">0</td>
 				</tr>
 				<tr>
-					<th>team4</th>
+					<th>4. Tech republic</th>
 					<td id="t4">0</td>
 				</tr>
 				<tr>
-					<th>team5</th>
+					<th>5. Vy</th>
 					<td id="t5">0</td>
 				</tr>
 				<tr>
-					<th>team6</th>
+					<th>6. Philani SA</th>
 					<td id="t6">0</td>
 				</tr>
 				<tr>
-					<th>team7</th>
+					<th>7. App Crowd</th>
 					<td id="t7">0</td>
 				</tr>
 				<tr>
-					<th>team8</th>
+					<th>8. Pinkslip</th>
 					<td id="t8">0</td>
 				</tr>
 			</tbody>
@@ -121,7 +122,7 @@
 			            type: 'column'
 			        },
 			        title: {
-			            text: 'Data extracted from a HTML table in the page'
+			            text: 'SMS votes'
 			        },
 			        yAxis: {
 			            allowDecimals: false,
